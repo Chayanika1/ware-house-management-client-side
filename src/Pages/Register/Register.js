@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 
 import { sendEmailVerification } from 'firebase/auth';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 
 
@@ -62,6 +63,7 @@ const Register = () => {
     }
     return (
         <div className='col-lg-6 col-sm-8 mx-auto'>
+            <h1>Please Register</h1>
              <form onSubmit={handleRegistration}>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -86,6 +88,7 @@ const Register = () => {
                 <p>Already have an account? then go to<Link className="p-3" style={{ textDecoration: 'none' }} to="/Login">Login</Link></p>
                 <ToastContainer/>
             </form>
+            <SocialLogin></SocialLogin>
 
             
         </div>

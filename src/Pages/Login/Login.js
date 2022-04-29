@@ -6,6 +6,7 @@ import auth from '../../firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { sendPasswordResetEmail } from 'firebase/auth';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 
 
@@ -55,7 +56,9 @@ const Login = () => {
     }
     return (
         <div className='col-lg-6 col-sm-8 mx-auto'>
+            <h1>Please Login</h1>
             <form onSubmit={handleLogin}>
+
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
                     <input onBlur={handleEmail}type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required/>
@@ -75,6 +78,7 @@ const Login = () => {
                 <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
                 <ToastContainer/>
             </form>
+            <SocialLogin></SocialLogin>
 
         </div>
     );
