@@ -11,10 +11,14 @@ const GoDown = () => {
     return (
 
        
-        <div>
+        <div className='container'>
+            <div className='row'>
             {
-                products.map(product=><ProductName product={product}></ProductName>)
+                products.slice(0,6).map(product=><ProductName product={product}></ProductName>)
             }
+
+            </div>
+            
             
         </div>
     );
