@@ -9,6 +9,7 @@ import Error from './Error/Error';
 
 
 import ItemDetail from './Pages/ItemDetail/ItemDetail';
+import ManageAllProducts from './Pages/ManageAllProducts/ManageAllProducts';
 
 function App() {
   return (
@@ -17,7 +18,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/Home" element={<Home></Home>}></Route>
+        <Route path="/ManageAllProducts" element={<ManageAllProducts></ManageAllProducts>}></Route>
+        
         <Route path="/ProductName/:name" element={<ItemDetail></ItemDetail>}></Route>
+       
         <Route path="/Login" element={<Login></Login>}></Route>
         <Route path="/Register" element={<Register></Register>}></Route>
         <Route path="*" element={<Error></Error>}></Route>
