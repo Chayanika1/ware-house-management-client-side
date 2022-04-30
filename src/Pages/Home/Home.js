@@ -1,12 +1,12 @@
 import React from 'react';
 import Carousel from '../Carousel/Carousel';
-import GoDown from '../GOdown/GoDown';
+import Invetory from '../GOdown/Invetory';
 
 const Home = () => {
     return (
         <div>
             <Carousel></Carousel>
-            <GoDown></GoDown>
+           <Invetory></Invetory>
             
         </div>
     );

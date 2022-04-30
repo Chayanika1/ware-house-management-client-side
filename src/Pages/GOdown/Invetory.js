@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ProductName from '../ProductName/ProductName';
 
-const GoDown = () => {
+const Invetory = () => {
     const[products,setProducts]= useState([]);
     useEffect(()=>{
         fetch('fakeData.json')
@@ -24,4 +24,4 @@ const GoDown = () => {
     );
 };
 
-export default GoDown;
+export default Invetory;
