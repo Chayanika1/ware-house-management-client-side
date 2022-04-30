@@ -19,7 +19,7 @@ const Invetory = () => {
 
 
         <div className='container'>
-            <h1>Invetory Section</h1>
+            <h1 className='text-center p-4'><span style={{color:'Green'}}>Inventory</span> <span style={{color:'red'}}>Section</span></h1>
             <div className='row'>
                 {
                     products.slice(0, limit).map(product => <ProductName product={product}></ProductName>)
@@ -27,7 +27,7 @@ const Invetory = () => {
 
             </div>
             <div class="d-grid gap-2">
-                <button onClick={showData} class="btn btn-primary" type="button">Manage Inventory</button>
+                <button onClick={showData} class="btn btn-primary mb-4" type="button">Manage Inventory</button>
                 
             </div>
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 const ItemDetail = () => {
     const [items, setItems] = useState({});
@@ -11,6 +11,10 @@ const ItemDetail = () => {
     }, [])
 
     const { name } = useParams();
+    const navigate = useNavigate();
+    const details=()=>{
+        navigate('/Home')
+    }
     return (
         <div>
 
@@ -33,8 +37,12 @@ const ItemDetail = () => {
                             
                     </div>
                     
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary mb-4">Submit</button>
                 </form>
+            </div>
+            <div class="d-grid gap-2">
+                <button onClick={details} class="btn btn-primary" type="button">Manage Inventory</button>
+                
             </div>
 
         </div>
