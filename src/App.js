@@ -13,6 +13,9 @@ import ItemDetail from './Pages/ItemDetail/ItemDetail';
 import ManageAllProducts from './Pages/ManageAllProducts/ManageAllProducts';
 import Invetory from './Pages/GOdown/Invetory';
 import Footer from './Pages/Footer/Footer';
+import ManageInventory from './Pages/ManageInventory/ManageInventory';
+import AddItem from './AddItem/AddItem';
+import MyItems from './Pages/MyItems/MyItems';
 
 function App() {
   return (
@@ -23,12 +26,16 @@ function App() {
         <Route path="/Home" element={<Home></Home>}></Route>
         <Route path="/ManageAllProducts" element={<ManageAllProducts></ManageAllProducts>}></Route>
         <Route path="/Invetory" element={<Invetory></Invetory>}></Route>
+        <Route path="/ManageInventory" element={<ManageInventory></ManageInventory>}></Route>
+        <Route path="/AddItem" element={<AddItem></AddItem>}></Route>
+        <Route path="/MyItems" element={<MyItems></MyItems>}></Route>
         
         
-        <Route path="/ProductName/:name" element={<RequireAuth><ItemDetail></ItemDetail></RequireAuth>}></Route>
+        <Route path="/ProductName/:id" element={<RequireAuth><ItemDetail></ItemDetail></RequireAuth>}></Route>
        
         <Route path="/Login" element={<Login></Login>}></Route>
         <Route path="/Register" element={<Register></Register>}></Route>
+        
         <Route path="*" element={<Error></Error>}></Route>
       </Routes>
       <Footer></Footer>

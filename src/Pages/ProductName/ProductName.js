@@ -2,10 +2,10 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const ProductName = (props) => {
-    const { name, suppliers, img, price, details, quantity } = props.product;
+    const { name, suppliers, img, price, details, quantity,_id } = props.product;
     const navigate = useNavigate();
-    const showItemDetails=()=>{
-        navigate('/ProductName/'+name);
+    const showItemDetails=(id)=>{
+        navigate(`/ProductName/${id}`);
 
     }
     return (
@@ -24,7 +24,7 @@ const ProductName = (props) => {
                     <h4>price:${price}</h4>
                     <h6>Quantity:{quantity}</h6>
                     
-                    <button onClick={showItemDetails}type="button" class="btn btn-primary">Stock Update</button>
+                    <button onClick={()=>showItemDetails(_id)}type="button" class="btn btn-primary">Stock Update</button>
                 </div>
             </div>
 

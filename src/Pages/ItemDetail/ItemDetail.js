@@ -1,50 +1,100 @@
 import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
+
 const ItemDetail = () => {
+    const navigate = useNavigate();
+    const { id } = useParams();
+    const { register, handleSubmit } = useForm()
+    
     const [items, setItems] = useState({});
     useEffect(() => {
+        const url = `http://localhost:5000/item/${id}`;
+        console.log(url);
 
-        fetch('fakeData.json')
+        fetch(url)
             .then(response => response.json())
             .then(data => setItems(data))
-    }, [])
+    }, []);
+    //update value
+    const onSubmit=(data)=>{
+        fetch(`http://localhost:5000/item/${id}?prevQuantity=${items.quantity}`,{
+            method:'put',
+            headers :{
+                "Content-Type": "application/json",
+            },
+            body:JSON.stringify(data)
+        })
+        .then(response=>response.json())
+        .then(result=>{
+            console.log("success",result);
+            alert("updated successfully");
 
-    const { name } = useParams();
-    const navigate = useNavigate();
-    const details=()=>{
-        navigate('/Home')
+        });
+        window.location.reload()
+
     }
+    //decrease value
+    const decreaseValue = () => {
+        fetch(`http://localhost:5000/items/${id}?prevQuantity=${items.quantity}`, {
+          method: "put",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data);
+            alert('Delivery successfull, reload this page')
+          });
+          window.location.reload()
+      }
+    
+
+    
+    
+    const manageInventory=()=>{
+        navigate("/ManageInventory");
+
+    }
+    
+    
+
     return (
         <div>
+            
 
-            <div class="card">
-                <img src="" class="card-img-top" alt="..." />
-                <div class="card-body">
-                    <h6>Suppliers:</h6>
-                    <h5 class="card-title">{name}</h5>
-                    <p class="card-text">{items.details}</p>
-                    <h4>price:</h4>
-                    <h6>Quantity:</h6>
-                    <button type="button" class="btn btn-primary">Delivered</button>
-                </div>
-            </div>
-            <div>
-                <form>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Update</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-                            
+
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col">
+                    <div class="card">
+                        <img src={items.img} class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <h5 class="card-title">{items.name}</h5>
+                            <p class="card-text">{items.details}</p>
+                            <h4>price:{items.price}</h4>
+                            <h6>Quantity:{items.quantity}</h6>
+                            <button onClick={decreaseValue} type="button" class="btn btn-primary">Delivered</button>
+                        </div>
                     </div>
-                    
-                    <button type="submit" class="btn btn-primary mb-4">Submit</button>
-                </form>
-            </div>
-            <div class="d-grid gap-2">
-                <button onClick={details} class="btn btn-primary" type="button">Manage Inventory</button>
+                </div>
+                <div>
+                <form className="d-flex flex-column"onSubmit={handleSubmit(onSubmit)}>
+                <input placeholder='Enter product quantity' required type="number" {...register("quantity") } /><br/>
                 
-            </div>
+                
+                
+                <input type="submit"/>
+                
+            </form>
+                </div>
+                <div class="d-grid gap-2">
+                <button onClick={manageInventory} type="button" class="btn btn-info">Manage Inventories</button>
 
+                </div>
+
+    </div>
         </div>
     );
 };

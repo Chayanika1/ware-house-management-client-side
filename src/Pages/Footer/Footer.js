@@ -2,10 +2,11 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className='container bg-dark' style={{color:'white'}}>
+        <div className='container bg-dark text-center p-4' style={{color:'white'}}>
+            <h1 className='text-center p-2'>ENVOY</h1>
             <div className='row'>
-                <div className='col-lg-4 col-lg-12'>
-                    <h1 className='text-center p-2'>ENVOY</h1>
+                <div className='col-lg-4 col-sm-12'>
+                    
                     <p>we create possibilities for the connected world.
                         <p><b>Be Bold</b></p>
                     </p>
