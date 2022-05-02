@@ -16,6 +16,7 @@ import Footer from './Pages/Footer/Footer';
 import ManageInventory from './Pages/ManageInventory/ManageInventory';
 import AddItem from './AddItem/AddItem';
 import MyItems from './Pages/MyItems/MyItems';
+import Vlogs from './Pages/Vlogs/Vlogs';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
        
         <Route path="/Login" element={<Login></Login>}></Route>
         <Route path="/Register" element={<Register></Register>}></Route>
+        <Route path="/Vlogs" element={<Vlogs></Vlogs>}></Route>
         
         <Route path="*" element={<Error></Error>}></Route>
       </Routes>
