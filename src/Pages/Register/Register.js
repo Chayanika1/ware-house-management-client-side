@@ -1,4 +1,4 @@
-import React, { useState, useSyncExternalStore } from 'react';
+import React, { useRef, useState, useSyncExternalStore } from 'react';
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -28,7 +28,8 @@ const Register = () => {
     //const [sendEmailVerification, sending] = useSendEmailVerification(
     //    auth
     //);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    
 
     const handelEmail = (e) => {
         setEmail(e.target.value)
@@ -40,6 +41,7 @@ const Register = () => {
         setConfirmPassword(e.target.value)
     }
     const handleRegistration = (e) => {
+       
         if (password !== confirmPassword) {
             alert('password not matched')
         }

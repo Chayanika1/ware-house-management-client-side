@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Header = () => {
-    const[user] = useAuthState(auth);
-    const handelSignOut=()=>{
+    const [user] = useAuthState(auth);
+    const handelSignOut = () => {
         signOut(auth);
     }
     return (
@@ -21,14 +21,18 @@ const Header = () => {
                         <div class="navbar-nav">
                             <Link class="nav-link active" aria-current="page" to="/Home">Home</Link>
                             {
-                                user ?<button onClick={handelSignOut}>SignOut</button>:<Link class="nav-link" to="/Login">Login</Link>
+                                user ? <button onClick={handelSignOut}>SignOut</button> : <Link class="nav-link" to="/Login">Login</Link>
                             }
-                            
-                            <Link class="nav-link" to="/Register">Register</Link>
-                            <Link class="nav-link" to="/AddItem">Add Item</Link>
-                            <Link class="nav-link" to="/MyItems">My Item</Link>
+
+                            <Link class="nav-link" to="/Register">Register</Link>{
+                                user && <>
+                                    <Link class="nav-link" to="/AddItem">Add Item</Link>
+                                    <Link class="nav-link" to="/MyItems">My Item</Link>
+                                </>
+                            }
+
                             <Link class="nav-link" to="/Vlogs">Vlogs</Link>
-                            
+
                         </div>
                     </div>
                 </div>

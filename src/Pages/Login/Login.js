@@ -47,13 +47,13 @@ const Login = () => {
     if (error) {
         errorElement = <p>Error : {error.message}</p>
     }
-    const resetPassword = () => {
-        sendPasswordResetEmail(auth, email)
-            .then(() => {
-                toast('Email send')
-            })
+    const resetPassword =  () => {
+        sendPasswordResetEmail(auth,email)
+        .then(()=>{
+            toast('Email send')
+        })
 
-
+        
     }
     return (
         <div className='col-lg-6 col-sm-8 mx-auto border border-3 p-4 shadow-lg p-3 mb-5 bg-body rounded mt-3'>

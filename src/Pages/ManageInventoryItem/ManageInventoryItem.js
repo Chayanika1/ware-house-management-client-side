@@ -19,7 +19,8 @@ const ManageInventoryItem = (props) => {
                 const remainItem = services.filter(service=>service._id !== id)
                 setServices(remainItem);
                 console.log(remainItem);
-            })
+            });
+            window.location.reload()
 
 
         }
@@ -35,7 +36,7 @@ const ManageInventoryItem = (props) => {
             <div class="card h-100">
                 <img src={img} class="card-img-top" alt="..." />
                 <div class="card-body">
-                    <h3>{_id}</h3>
+                    <p>product id:{_id}</p>
                     <h6>Suppliers:{suppliers}</h6>
                     <h5 class="card-title">{name}</h5>
                     <p class="card-text">{details}</p>
