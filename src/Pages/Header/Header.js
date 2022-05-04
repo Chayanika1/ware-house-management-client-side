@@ -32,6 +32,7 @@ const Header = () => {
                             }
 
                             <Link class="nav-link" to="/Vlogs">Vlogs</Link>
+                            <Link class="nav-link" to="/About">About</Link>
 
                         </div>
                     </div>

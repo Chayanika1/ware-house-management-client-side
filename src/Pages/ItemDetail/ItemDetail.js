@@ -81,16 +81,16 @@ const ItemDetail = () => {
                 </div>
                 <div>
                 <form className="d-flex flex-column"onSubmit={handleSubmit(onSubmit)}>
-                <input placeholder='Enter product quantity' required type="number" {...register("quantity") } /><br/>
+                <input  className='mx-auto'style={{width:'50%'}} placeholder='Enter product quantity' required type="number" {...register("quantity") } /><br/>
                 
                 
                 
-                <input type="submit"/>
+                <input style={{width:'25%'}} className='btn btn-warning mx-auto' type="submit"/>
                 
             </form>
                 </div>
                 <div class="d-grid gap-2">
-                <button onClick={manageInventory} type="button" class="btn btn-info">Manage Inventories</button>
+                <button  onClick={manageInventory} type="button" class="btn btn-info mb-4">Manage Inventories</button>
 
                 </div>
 

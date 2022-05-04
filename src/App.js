@@ -18,6 +18,7 @@ import AddItem from './AddItem/AddItem';
 import MyItems from './Pages/MyItems/MyItems';
 import Vlogs from './Pages/Vlogs/Vlogs';
 import MyItem from './Pages/MyItem/MyItem';
+import About from './Pages/About/About';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/Register" element={<Register></Register>}></Route>
        
         <Route path="/Vlogs" element={<Vlogs></Vlogs>}></Route>
+        <Route path="/About" element={<About></About>}></Route>
         
         <Route path="*" element={<Error></Error>}></Route>
       </Routes>

@@ -13,11 +13,11 @@ const MyItems = () => {
     console.log(findProduct);
     return (
         <div>
-            <h1 className="text-center">my iteams</h1>
+            <h1 className="text-center">my items</h1>
             <hr />
             <div className="container row">
                 {
-                    findProduct.map(f => <li>f={f.price}</li>)
+                    findProduct.map(item => <MyItem item={item}></MyItem>)
                 }
             </div>
 
@@ -26,3 +26,4 @@ const MyItems = () => {
 };
 
 export default MyItems;
+

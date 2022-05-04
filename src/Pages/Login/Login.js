@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import User1 from '../../Images/User1.png';
+import axios from 'axios';
 
 
 
@@ -17,6 +18,8 @@ import User1 from '../../Images/User1.png';
 
 
 const Login = () => {
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -36,14 +39,19 @@ const Login = () => {
         setPassword(e.target.value)
 
     }
-    const handleLogin = (e) => {
-        signInWithEmailAndPassword(email, password)
-        e.preventDefault()
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        
+        await signInWithEmailAndPassword(email, password);
+        const {data} = await axios.post('http://localhost:5000/login', {email});
+        console.log(data);
+        localStorage.setItem('accessToken',data.accessToken);
+        navigate('/Home')
+        
+        
     }
     let errorElement;
-    if (user) {
-        navigate('/Home')
-    }
+    
     if (error) {
         errorElement = <p>Error : {error.message}</p>
     }
@@ -94,3 +102,5 @@ const Login = () => {
 };
 
 export default Login;
+
+

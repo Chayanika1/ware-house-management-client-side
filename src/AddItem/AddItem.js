@@ -33,8 +33,9 @@ const AddItem = () => {
             <form className="d-flex flex-column" onSubmit={handleSubmit(onSubmit)}>
 
                 <input className='border border-primary p-1 rounded-3 shadow p-3 mb-1 bg-body rounded text-center mx-auto w-75' placeholder='Enter product quantity' {...register("quantity")}  /><br />
+                <input className='border border-primary p-1 rounded-3 shadow p-3 mb-1 bg-body rounded text-center mx-auto w-75' placeholder='Enter product name' {...register("name")}  /><br />
                 <input className='border border-primary p-1 rounded-3 shadow p-3 mb-1 bg-body rounded text-center mx-auto w-75' placeholder='Description' {...register("description")} /><br />
-                <input className='border border-primary p-1 rounded-3 shadow p-3 mb-1 bg-body rounded text-center mx-auto w-75'  placeholder='Your Mail'{...register("mail")} required /><br />
+                <input className='border border-primary p-1 rounded-3 shadow p-3 mb-1 bg-body rounded text-center mx-auto w-75'  placeholder='Your Mail'{...register("email")} required /><br />
                 <input className='border border-primary p-1 rounded-3 shadow p-3 mb-1 bg-body rounded text-center mx-auto w-75' placeholder='Price' {...register("price")} /><br />
                 <input className='border border-primary p-1 rounded-3 shadow p-3 mb-1 bg-body rounded text-center mx-auto w-75' placeholder='Image URL' {...register("img URL")} /><br />
 
