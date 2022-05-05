@@ -19,7 +19,7 @@ const MyIteam = () => {
         const getProduct = async () => {
             const email = user?.email;
             console.log(email);
-            const url = `http://localhost:5000/personalData?email=${email}`;
+            const url = `https://immense-sea-82529.herokuapp.com/personalData?email=${email}`;
             try {
                 const { data } = await axios.get(url, {
                     headers: {

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+
 import useServices from '../useServices';
 
 const ManageInventoryItem = (props) => {
@@ -9,7 +8,7 @@ const ManageInventoryItem = (props) => {
         console.log(id)
         const proceed = window.confirm('are you want to delete?');
         if(proceed){
-            const url =`http://localhost:5000/item/${id}`
+            const url =`https://immense-sea-82529.herokuapp.com/item/${id}`
             fetch(url,{
                 method :'DELETE',
 

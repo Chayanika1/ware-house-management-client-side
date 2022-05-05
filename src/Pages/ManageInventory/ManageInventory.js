@@ -8,7 +8,7 @@ const ManageInventory = () => {
     const navigate = useNavigate();
     
     useEffect(() => {
-        fetch('http://localhost:5000/item')
+        fetch('https://immense-sea-82529.herokuapp.com/item')
             .then(response => response.json())
             .then(data => setProducts(data))
     }, []);

@@ -15,7 +15,7 @@ const AddItem = () => {
 
     const onSubmit = (data) => {
         
-        fetch('http://localhost:5000/item', {
+        fetch('https://immense-sea-82529.herokuapp.com/item', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

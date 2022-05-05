@@ -10,7 +10,7 @@ const ItemDetail = () => {
     
     const [items, setItems] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/item/${id}`;
+        const url = `https://immense-sea-82529.herokuapp.com/item/${id}`;
         console.log(url);
 
         fetch(url)
@@ -19,7 +19,7 @@ const ItemDetail = () => {
     }, []);
     //update value
     const onSubmit=(data)=>{
-        fetch(`http://localhost:5000/item/${id}?prevQuantity=${items.quantity}`,{
+        fetch(`https://immense-sea-82529.herokuapp.com/item/${id}?prevQuantity=${items.quantity}`,{
             method:'put',
             headers :{
                 "Content-Type": "application/json",
@@ -37,7 +37,7 @@ const ItemDetail = () => {
     }
     //decrease value
     const decreaseValue = () => {
-        fetch(`http://localhost:5000/items/${id}?prevQuantity=${items.quantity}`, {
+        fetch(`https://immense-sea-82529.herokuapp.com/items/${id}?prevQuantity=${items.quantity}`, {
           method: "put",
           headers: {
             "Content-Type": "application/json",
