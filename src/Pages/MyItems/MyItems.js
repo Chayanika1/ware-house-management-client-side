@@ -1,29 +1,54 @@
-import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
-import MyItem from '../MyItem/MyItem';
-import useServices from '../useServices';
+import axios from "axios";
+import { signOut } from "firebase/auth";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 
-const MyItems = () => {
-    const [user] = useAuthState(auth);
-    const email = user?.email;
-    const [services] = useServices();
-    const findProduct = services.filter((p) => p.email === email);
+import { useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
 
-    console.log(findProduct);
+import MyItem from "../MyItem/MyItem";
+
+
+
+const MyIteam = () => {
+    const[user] = useAuthState(auth)
+    const [findProduct, setFindProduct] = useState([]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const getProduct = async () => {
+            const email = user?.email;
+            console.log(email);
+            const url = `http://localhost:5000/personalData?email=${email}`;
+            try {
+                const { data } = await axios.get(url, {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                    },
+                });
+                setFindProduct(data);
+            } catch (error) {
+                if (error.response.status === 401 || error.response.status === 403) {
+                    alert("access forbidden, go to log in");
+                    signOut(auth);
+                    navigate("/login");
+                }
+            }
+        };
+        getProduct();
+    },[user]);
+
     return (
         <div>
             <h1 className="text-center">my items</h1>
             <hr />
             <div className="container row">
-                {
-                    findProduct.map(item => <MyItem item={item}></MyItem>)
-                }
+                {findProduct.map((item) => (
+                    <MyItem key={item._id} item={item}></MyItem>
+                ))}
             </div>
-
         </div>
     );
 };
 
-export default MyItems;
-
+export default MyIteam;

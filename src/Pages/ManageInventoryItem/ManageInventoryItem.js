@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import useServices from '../useServices';
 
 const ManageInventoryItem = (props) => {
@@ -28,11 +29,8 @@ const ManageInventoryItem = (props) => {
         
     }
     return (
-
-
-
-
-        <div class="g-5 rounded-3 col-sm-12 col-md-6 col-lg-4 shadow p-3 mb-5 bg-body rounded">
+        
+            <div class="g-5 rounded-3 col-sm-12 col-md-6 col-lg-4 shadow p-3 mb-5 bg-body rounded">
             <div class="card h-100">
                 <img src={img} class="card-img-top" alt="..." />
                 <div class="card-body">
@@ -46,7 +44,20 @@ const ManageInventoryItem = (props) => {
                     
                 </div>
             </div>
+            
+            
         </div>
+
+       
+        
+            
+        
+        
+
+
+
+
+        
 
 
 

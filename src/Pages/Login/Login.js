@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -39,29 +39,31 @@ const Login = () => {
         setPassword(e.target.value)
 
     }
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     const handleLogin = async (e) => {
         e.preventDefault();
-        
+
         await signInWithEmailAndPassword(email, password);
-        const {data} = await axios.post('http://localhost:5000/login', {email});
+        const { data } = await axios.post('http://localhost:5000/login', { email });
         console.log(data);
-        localStorage.setItem('accessToken',data.accessToken);
+        localStorage.setItem('accessToken', data.accessToken);
         navigate('/Home')
-        
-        
+
+
     }
     let errorElement;
-    
+
     if (error) {
         errorElement = <p>Error : {error.message}</p>
     }
     const resetPassword =  () => {
-        sendPasswordResetEmail(auth,email)
-        .then(()=>{
-            toast('Email send')
-        })
+        //const email = emailRef.current.value;
+         sendPasswordResetEmail(email,auth);
+        toast("Sent email");
 
-        
+
+
     }
     return (
         <div className='col-lg-6 col-sm-8 mx-auto border border-3 p-4 shadow-lg p-3 mb-5 bg-body rounded mt-3'>
@@ -84,7 +86,7 @@ const Login = () => {
                 </div>
                 <div class="mb-3 text-center">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input style={{ width: '50%' }} onBlur={handlePassword} type="password" class="form-control mx-auto" id="exampleInputPassword1"  />
+                    <input style={{ width: '50%' }} onBlur={handlePassword} type="password" class="form-control mx-auto" id="exampleInputPassword1" />
                 </div>
 
                 {errorElement}
@@ -102,5 +104,3 @@ const Login = () => {
 };
 
 export default Login;
-
-

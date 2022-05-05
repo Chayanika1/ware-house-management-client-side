@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './ManageInventory.css';
 import ManageInventoryItem from '../ManageInventoryItem/ManageInventoryItem';
 
 const ManageInventory = () => {
@@ -21,6 +22,11 @@ const ManageInventory = () => {
             }
 
             </div>
+            <div className='text-center mx-auto mb-4'>
+            <Link className='btn btn-primary' to='/AddItem'><i class="fa-solid fa-plus-large"></i>Add Item</Link>
+
+            </div>
+            
             
             
             
