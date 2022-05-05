@@ -1,8 +1,9 @@
 
+import { useState } from 'react';
 import useServices from '../useServices';
 
 const ManageInventoryItem = (props) => {
-    const[services,setServices] = useServices()
+    const[services,setServices] = useServices();
     const { name, img, quantity, price, suppliers, details,_id } = props.product;
     const handelDelete=(id)=>{
         console.log(id)

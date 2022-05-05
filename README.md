@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# Getting Started with turbo motor
+<li>create some rour and private route</li>
+<li>crate authentication for register and login using firebase</li>
+<li>create social media login</li>
+<li>create jwt token</li>
+<li>use jwt token</li>
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
