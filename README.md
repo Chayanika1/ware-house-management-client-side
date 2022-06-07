@@ -4,6 +4,9 @@
 <li>create social media login</li>
 <li>create jwt token</li>
 <li>use jwt token</li>
+<li> using react react router, node js, momgo db,Heroku in this project</li>
+<li>using firebase fir email and password for login,sign in.</li>
+<li>update product quantity by clicking delivered button</li>
 my live site link is = https://my-asignment.web.app
 
 
