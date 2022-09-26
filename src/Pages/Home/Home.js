@@ -1,4 +1,5 @@
 import React from 'react';
+import Reviews from '../../Reviews/Reviews';
 
 import Addition from '../Addition/Addition';
 import AmazingPlugins from '../AmazingPlugins/AmazingPlugins';
@@ -15,6 +16,8 @@ const Home = () => {
             
             
            <Invetory></Invetory>
+           <Reviews></Reviews>
+           
            
             
         </div>

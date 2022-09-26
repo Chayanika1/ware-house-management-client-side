@@ -2,37 +2,22 @@ import React from 'react';
 import Banner1 from '../../Images/Banner1.jpg';
 import Banner2 from '../../Images/Banner2.jpg';
 import Banner3 from '../../Images/Banner3.jpg';
-
+import './Carousel.css';
 const Carousel = () => {
     return (
-        <div>
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <div className='container ' id="com">
+            <div className='row'>
+                <div className='col-lg-6 col-sm-12'>
+                    <img className='img-fluid' src={Banner2} alt=""></img>
                 </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img style={{ height:'500px',width:'200px'}}src={Banner1} class="d-block w-100" alt="..."/>
-                    </div>
-                    <div class="carousel-item">
-                        <img style={{ height:'500px',width:'200px'}}src={Banner2} class="d-block w-100" alt="..."/>
-                    </div>
-                    <div class="carousel-item">
-                        <img style={{ height:'500px',width:'200px'}}src={Banner3} class="d-block w-100" alt="..."/>
+                <div className='col-lg-6 col-sm-12 mt-3'>
+                    <p>Turbo Motors Original Parts, when used, ensure an optimum ownership cost of the vehicle and in a developing country like ours, road safety is yet another important aspect which needs attention at all costs. This is possible only through usage of original parts, where manufacturing and material come together to create superior and dependable spares Regular operation of your vehicle causes wear and tear of components. To ensure that your car continues to be reliable, economical and safe, you need to regularly and scientifically replace components during maintenance schedules. Tata Motors continuously strives to provide excellent customer support through technological expertise in maintaining the vehicle for years to come</p>
+                    <div className='text-center'>
+                    <button type="button" class="btn btn-primary btn-lg text-center m-4">Learn More</button>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
-
+            
         </div>
     );
 };
